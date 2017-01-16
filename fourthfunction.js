@@ -11,7 +11,7 @@ function getHTML (options, callback) {
   });
 
     response.on('end', function() {
-      return printHTML(buffer);
+      callback(buffer);
 
     });
   });
@@ -27,4 +27,4 @@ var requestOptions = {
   path: '/http-examples/step4.html'
 };
 
-getHTML(requestOptions)
+getHTML(requestOptions, printHTML);
